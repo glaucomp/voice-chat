@@ -68,28 +68,39 @@ export default function VoiceChat({ agentId }: VoiceChatProps) {
     if (!audioContext) return;
 
     try {
-      const state = audioContext.state;
+      let state = audioContext.state;
       console.log("AudioContext cleanup: current state is", state);
 
       if (state === "closed") return;
 
+      // Try suspending if running
       if (state === "running") {
         try {
           await audioContext.suspend();
           console.log("AudioContext suspended");
         } catch (e) {
-          console.warn("Error suspending AudioContext:", e);
+          if (e.name === "InvalidStateError") {
+            console.warn("Tried to suspend already-closed AudioContext.");
+          } else {
+            throw e;
+          }
         }
+        // Update the state after suspending
+        state = audioContext.state;
+        if (state === "closed") return;
       }
 
-      try {
-        await audioContext.close();
-        console.log("AudioContext closed");
-      } catch (e) {
-        if (e.name === "InvalidStateError") {
-          console.warn("Attempted to close already-closed AudioContext.");
-        } else {
-          throw e;
+      // Try closing if not suspended
+      if (state !== "suspended") {
+        try {
+          await audioContext.close();
+          console.log("AudioContext closed");
+        } catch (e) {
+          if (e.name === "InvalidStateError") {
+            console.warn("Tried to close already-closed AudioContext.");
+          } else {
+            throw e;
+          }
         }
       }
     } catch (err) {

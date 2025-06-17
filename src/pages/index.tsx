@@ -1,9 +1,12 @@
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { Card, CardContent } from "../components/ui/card";
 import VoiceChat from "../components/VoiceChat";
 
 export default function HomePage() {
+  const router = useRouter();
+
   const [agentId, setAgentId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -29,7 +32,7 @@ export default function HomePage() {
     initAgent();
   }, []);
 */
-
+  /*
   useEffect(() => {
     const initAgent = async () => {
       setIsLoading(true);
@@ -45,6 +48,20 @@ export default function HomePage() {
 
     initAgent();
   }, []);
+*/
+  useEffect(() => {
+    if (!router.isReady) return;
+
+    const agentFromQuery = router.query.agent_id;
+
+    if (typeof agentFromQuery === "string") {
+      setAgentId(agentFromQuery);
+    } else {
+      setError("Missing or invalid 'agent_id' in URL.");
+    }
+
+    setIsLoading(false);
+  }, [router.isReady, router.query.agent_id]);
 
   if (isLoading) {
     return <LoadingSpinner />;
