@@ -63,6 +63,19 @@ export default function HomePage() {
     setIsLoading(false);
   }, [router.isReady, router.query.agent_id]);
 
+  useEffect(() => {
+    const onUnload = () => {
+      if (window.opener) {
+        window.opener.postMessage("call-ended", "*");
+      }
+    };
+    window.addEventListener("unload", onUnload);
+
+    return () => {
+      window.removeEventListener("unload", onUnload);
+    };
+  }, []);
+
   if (isLoading) {
     return <LoadingSpinner />;
   }
