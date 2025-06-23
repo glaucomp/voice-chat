@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { Card, CardContent } from "../components/ui/card";
 import VoiceChat from "../components/VoiceChat";
+import { createWebAgent } from "@/lib/bland";
+
 
 export default function HomePage() {
   const router = useRouter();
@@ -11,7 +13,7 @@ export default function HomePage() {
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  /*
+
   useEffect(() => {
     const initAgent = async () => {
       setIsLoading(true);
@@ -31,7 +33,6 @@ export default function HomePage() {
 
     initAgent();
   }, []);
-*/
   /*
   useEffect(() => {
     const initAgent = async () => {
@@ -49,19 +50,19 @@ export default function HomePage() {
     initAgent();
   }, []);
 */
-  useEffect(() => {
-    if (!router.isReady) return;
+  // useEffect(() => {
+  //   if (!router.isReady) return;
 
-    const agentFromQuery = router.query.agent_id;
+  //   const agentFromQuery = router.query.agent_id;
 
-    if (typeof agentFromQuery === "string") {
-      setAgentId(agentFromQuery);
-    } else {
-      setError("Missing or invalid 'agent_id' in URL.");
-    }
+  //   if (typeof agentFromQuery === "string") {
+  //     setAgentId(agentFromQuery);
+  //   } else {
+  //     setError("Missing or invalid 'agent_id' in URL.");
+  //   }
 
-    setIsLoading(false);
-  }, [router.isReady, router.query.agent_id]);
+  //   setIsLoading(false);
+  // }, [router.isReady, router.query.agent_id]);
 
   useEffect(() => {
     const onUnload = () => {
