@@ -1,0 +1,478 @@
+/***** Generic Animations *****/
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+/*---------  [🟩 PAGE] Message input  💬💬💬💬💬💬💬💬---------*/
+
+/* Spin behing MJ */
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* used for fading in the green button*/
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(0px);
+    filter: blur(3px) brightness(0.5);
+    width: 58px;
+    opacity: 1;
+  }
+  10% {
+    transform: translateY(20px) scale(0.5);
+    filter: blur(3px) brightness(0.2);
+    width: 58px;
+    opacity: 0.5;
+  }
+
+  15% {
+    transform: translateY(0px) scale(1);
+    filter: blur(3px) brightness(1);
+    width: 58px;
+    opacity: 0.75;
+  }
+
+  30% {
+    transform: translateY(-30px) translateX(-40px) scaleX(3);
+    filter: blur(30px) brightness(2);
+    width: 0px;
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(-70px) translateX(-40px) scaleX(2);
+    filter: blur(30px) brightness(2);
+    width: 0px;
+    opacity: 0;
+  }
+}
+/* blinking Carat and text mobile */
+@keyframes carat {
+  to { 
+    opacity: 0; 
+  }
+}
+
+@keyframes pulseMobileTextShadow {
+  0%,
+  100% {
+    color: hsla(281, 50%, 90%, 0.75);
+    text-shadow: -1px 0 3px hsla(281, 100%, 50%, 0.2),
+      -1px 0 6px hsla(281, 100%, 50%, 0.2), -1px 0 9px hsla(281, 100%, 50%, 0.2),
+      -1px 0 12px hsla(281, 100%, 50%, 0.2),
+      -1px 0 15px hsla(281, 100%, 50%, 0.2),
+      -1px 0 18px hsla(281, 100%, 50%, 0.2),
+      -1px 0 21px hsla(281, 100%, 50%, 0.2),
+      -1px 0 24px hsla(281, 100%, 50%, 0.2);
+  }
+  50% {
+    color: hsla(281, 50%, 90%, 0.75);
+    text-shadow: 0 0 0px hsla(281, 100%, 55%, 0.2),
+      0 0 0px hsla(281, 100%, 55%, 0.2), 0 0 3px hsla(281, 100%, 55%, 0.2),
+      0 0 6px hsla(281, 100%, 55%, 0.2), 0 0 9px hsla(281, 100%, 55%, 0.2),
+      0 0 12px hsla(281, 100%, 55%, 0.2), 0 0 15px hsla(281, 100%, 55%, 0.2),
+      0 0 18px hsla(281, 100%, 55%, 0.2);
+  }
+}
+
+/*---------  [🛑 PAGEEND 🛑]  ---------*/
+
+
+
+
+
+
+
+
+
+/*--------- [🟩 PAGE]Agent Selector 🛗🛗🛗🛗🛗🛗🛗🛗---------*/
+
+/* Make buttun go up and blur at it's peak */
+@keyframes phoneUp {
+  0% {
+    transform: translateY(800%) scaleX(6) scaleY(5);
+    opacity: 0.2;
+    filter: blur(30px) brightness(2) hue-rotate(206deg);
+    user-select: none;
+    pointer-events: none;
+  }
+
+  50% {
+    transform: translateY(0);
+    opacity: 0.5;
+    filter: blur(0px) brightness(2);
+    user-select: none;
+    pointer-events: none;
+  }
+
+  53% {
+    transform: translateY(-50%);
+    opacity: 1;
+    filter: blur(0px);
+    user-select: none;
+    pointer-events: none;
+  }
+
+  70% {
+    transform: translateY(0) scale(1.5);
+    opacity: 1;
+    filter: blur(0px);
+    user-select: none;
+    pointer-events: none;
+  }
+
+  80% {
+    transform: translateY(0) scale(1.5);
+    opacity: 1;
+    filter: blur(3px);
+    user-select: none;
+    pointer-events: none;
+  }
+
+  100% {
+    transform: translateY(0) scaleX(1) scaleY(-0.5);
+    opacity: 0;
+    filter: blur(10px);
+    user-select: none;
+    pointer-events: none;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/*---------  [🛑 PAGEEND 🛑]  ---------*/
+
+/*--------- [🟩 PAGE] On Call 📱📱📱📱📱📱📱📱📱 ---------*/
+
+@keyframes imageIntro {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.5);
+    filter: blur(3px);
+  }
+
+  40% {
+    opacity: 0.2;
+  }
+
+  60% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+  90% {
+    transform: scale(0.95);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateGlow01 {
+  0% {
+    transform: translateY(-10%) translateX(-30%) rotate(133deg) scaleX(0.5);
+    width: 300px;
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-10%) translateX(-30%) rotate(360deg) scaleX(0.7);
+    width: 300px;
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-10%) translateX(-30%) rotate(492deg) scaleX(0.5);
+    width: 300px;
+    opacity: 1;
+  }
+}
+
+@keyframes rotateGlow02 {
+  0% {
+    transform: translateY(-32%) translateX(-25%) rotate(0deg) scaleX(0.5);
+    width: 300px;
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-32%) translateX(-25%) rotate(360deg) scaleX(1);
+    width: 300px;
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-32%) translateX(-25%) rotate(540deg) scaleX(0.5);
+    width: 300px;
+    opacity: 1;
+  }
+}
+
+@keyframes rotateGlow03 {
+  0% {
+    transform: translateY(-32%) translateX(-25%) rotate(0deg) scaleX(0.5);
+    width: 300px;
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-32%) translateX(-25%) rotate(360deg) scaleX(1);
+    width: 300px;
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-32%) translateX(-25%) rotate(540deg) scaleX(0.5);
+    width: 300px;
+    opacity: 1;
+  }
+}
+
+@keyframes scaleBlurOpacity {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+    filter: blur(30px);
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.5;
+    filter: blur(10px);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes fadeDots {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.15;
+  }
+}
+
+/*---------  [🛑 PAGEEND 🛑]  ---------*/
+
+/*---------  [🟩 COMPONENT] Buttons  ---------*/
+
+@keyframes gradientAnimation {
+  0% {
+    --gradient-start: #4e9630;
+    --gradient-end: #0b2a3b;
+  }
+  50% {
+    --gradient-start: #8ec43f;
+    --gradient-end: #1c4d5c;
+  }
+  100% {
+    --gradient-start: #4e9630;
+    --gradient-end: #0b2a3b;
+  }
+}
+
+@keyframes gradientAnimation02 {
+  0% {
+    --gradient02-start: #ff7053;
+    --gradient02-end: #910c00;
+  }
+  50% {
+    --gradient02-start: #fe3b14;
+    --gradient02-end: #660a01;
+  }
+  100% {
+    --gradient02-start: #ff7053;
+    --gradient02-end: #910c00;
+  }
+}
+
+/* shakes the phone icon */
+@keyframes shake {
+  0%,
+  80%, /* Start and end of the actual shake */
+  100% {
+    /* End of the delay phase */
+    transform: rotate(0deg);
+  }
+  30%,
+  90% {
+    /* Midpoint of the shake */
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%) scale(0.75);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(100%) scale(0.75);
+    opacity: 0;
+
+    box-shadow: -1px 1px 1px -1px hsla(0, 100%, 65%, 0.056) inset,
+      -1px 2px 2px 0px hsl(0, 97%, 35%) inset,
+      0px 1.5px 1px -1px rgba(255, 255, 255, 0.5),
+      0px 2px 2px -1px hsla(0, 100%, 45%, 0.7),
+      0px 0px 40px 0px hsla(0, 100%, 50%, 0.199);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    box-shadow: -1px 1px 1px -1px hsla(0, 100%, 65%, 0.61) inset,
+      -1px 2px 2px 0px hsl(0, 97%, 35%) inset,
+      0px 1.5px 1px -1px rgba(255, 255, 255, 0.5),
+      0px 2px 2px -1px hsla(0, 100%, 45%, 0.7),
+      0px 0px 40px 0px hsla(0, 100%, 50%, 0.8);
+  }
+}
+
+/*---------  [🛑 COMPONENT END 🛑]  ---------*/
+
+/*---------  [🟩 COMPONENT] Agent Selector Image   ---------*/
+
+@keyframes pulseShadowMax {
+  0%,
+  100% {
+    box-shadow: inset 0 0 50px var(--glow-shadow-color1),
+      inset 20px 0 80px var(--glow-shadow-color2),
+      inset -20px 0 80px var(--glow-shadow-color3),
+      inset 20px 0 300px var(--glow-shadow-color4),
+      inset -20px 0 300px var(--glow-shadow-color5),
+      0 0 20px var(--glow-shadow-color6), -10px 0 80px var(--glow-shadow-color7),
+      10px 0 80px var(--glow-shadow-color8);
+  }
+  50% {
+    box-shadow: inset 0 0 70px var(--glow-shadow-color1),
+      inset 25px 0 100px var(--glow-shadow-color2),
+      inset -25px 0 100px var(--glow-shadow-color3),
+      inset 25px 0 400px var(--glow-shadow-color4),
+      inset -25px 0 400px var(--glow-shadow-color5),
+      0 0 30px var(--glow-shadow-color6),
+      -12px 0 100px var(--glow-shadow-color7),
+      12px 0 100px var(--glow-shadow-color8);
+  }
+}
+
+@keyframes pulseShadowMichael {
+  0% {
+    box-shadow: inset 0 0 50px var(--glow-shadow-color1),
+      inset 20px 0 80px hsla(19, 100%, 40%, 0.26),
+      inset -20px 0 80px var(--glow-shadow-color3),
+      inset 20px 0 300px hsla(19, 100%, 40%, 1),
+      inset -20px 0 300px var(--glow-shadow-color5),
+      0 0 20px var(--glow-shadow-color6), -10px 0 80px hsla(19, 100%, 40%, 1),
+      10px 0 80px var(--glow-shadow-color3);
+  }
+  50% {
+    box-shadow: inset 0 0 70px var(--glow-shadow-color1),
+      inset 25px 0 100px hsla(19, 100%, 40%, 0.36),
+      inset -25px 0 100px var(--glow-shadow-color3),
+      inset 25px 0 400px hsla(19, 100%, 40%, 1.2),
+      inset -25px 0 400px var(--glow-shadow-color5),
+      0 0 30px var(--glow-shadow-color6), -12px 0 100px hsla(19, 100%, 40%, 1.2),
+      12px 0 100px var(--glow-shadow-color3);
+  }
+  100% {
+    box-shadow: inset 0 0 50px var(--glow-shadow-color1),
+      inset 20px 0 80px hsla(19, 100%, 40%, 0.26),
+      inset -20px 0 80px var(--glow-shadow-color3),
+      inset 20px 0 300px hsla(19, 100%, 40%, 1),
+      inset -20px 0 300px var(--glow-shadow-color5),
+      0 0 20px var(--glow-shadow-color6), -10px 0 80px hsla(19, 100%, 40%, 1),
+      10px 0 80px var(--glow-shadow-color3);
+  }
+}
+
+@keyframes pulseShadowMaya {
+  0%,
+  100% {
+    box-shadow: inset 0 0 50px #fcfa76,
+      inset 20px 0 80px var(--glow-shadow-color2),
+      inset -20px 0 80px var(--glow-shadow-color3),
+      inset 20px 0 300px var(--glow-shadow-color4),
+      inset -20px 0 300px var(--glow-shadow-color5),
+      0 0 20px var(--glow-shadow-color6), -10px 0 80px var(--glow-shadow-color2),
+      10px 0 80px var(--glow-shadow-color3);
+  }
+  50% {
+    box-shadow: inset 0 0 70px #fcfa76,
+      inset 25px 0 100px var(--glow-shadow-color2),
+      inset -25px 0 100px var(--glow-shadow-color3),
+      inset 25px 0 400px var(--glow-shadow-color4),
+      inset -25px 0 400px var(--glow-shadow-color5),
+      0 0 30px var(--glow-shadow-color6),
+      -12px 0 100px var(--glow-shadow-color2),
+      12px 0 100px var(--glow-shadow-color3);
+  }
+}
+
+@keyframes pulseShadowOlivia {
+  0%,
+  100% {
+    box-shadow: inset 0 0 50px var(--glow-shadow-color1),
+      inset 20px 0 80px var(--glow-shadow-color2),
+      inset -20px 0 80px var(--glow-shadow-color3),
+      inset 20px 0 300px var(--glow-shadow-color4),
+      inset -20px 0 300px var(--glow-shadow-color5),
+      0 0 20px var(--glow-shadow-color6),
+      -10px 0 80px hsl(231deg 100% 40% / 80%),
+      10px 0 80px var(--glow-shadow-color3);
+  }
+  50% {
+    box-shadow: inset 0 0 70px var(--glow-shadow-color1),
+      inset 25px 0 100px var(--glow-shadow-color2),
+      inset -25px 0 100px var(--glow-shadow-color3),
+      inset 25px 0 400px var(--glow-shadow-color4),
+      inset -25px 0 400px var(--glow-shadow-color5),
+      0 0 30px var(--glow-shadow-color6),
+      -12px 0 100px hsl(231deg 100% 40% / 100%),
+      12px 0 100px var(--glow-shadow-color3);
+  }
+}
+

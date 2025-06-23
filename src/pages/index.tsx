@@ -1,10 +1,14 @@
 import { useRouter } from "next/router";
+import Image from "next/image";
+
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { Card, CardContent } from "../components/ui/card";
 import VoiceChat from "../components/VoiceChat";
 import { createWebAgent } from "@/lib/bland";
-
+import { slides } from "../data/slides";
+import ImageMax from '@/images/maxCall.jpg';
+import IconPhone from "@/icons/icon-phone.svg";
 
 export default function HomePage() {
   const router = useRouter();
@@ -13,19 +17,18 @@ export default function HomePage() {
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-
   useEffect(() => {
     const initAgent = async () => {
       setIsLoading(true);
       try {
         const response = await createWebAgent();
         if (!response.agent?.agent_id) {
-          throw new Error('Failed to create web agent');
+          throw new Error("Failed to create web agent");
         }
         setAgentId(response.agent.agent_id);
       } catch (err) {
-        console.error('Agent creation error:', err);
-        setError(err instanceof Error ? err.message : 'Failed to create agent');
+        console.error("Agent creation error:", err);
+        setError(err instanceof Error ? err.message : "Failed to create agent");
       } finally {
         setIsLoading(false);
       }
@@ -64,6 +67,8 @@ export default function HomePage() {
   //   setIsLoading(false);
   // }, [router.isReady, router.query.agent_id]);
 
+  const agent = slides.find((slide) => slide.id === agentId);
+
   useEffect(() => {
     const onUnload = () => {
       if (window.opener) {
@@ -82,28 +87,41 @@ export default function HomePage() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-8 flex items-center justify-center">
-      <div className="max-w-2xl w-full mx-auto space-y-6">
-        {error ? (
-          <Card className="bg-white/10 backdrop-blur-lg border-none">
-            <CardContent className="p-6">
-              <div className="text-red-300/90 text-center font-light p-4 rounded-2xl bg-red-500/10">
-                {error}
-              </div>
-            </CardContent>
-          </Card>
-        ) : !agentId ? (
-          <Card className="bg-white/10 backdrop-blur-lg border-none">
-            <CardContent className="p-6">
-              <div className="text-white/70 text-center font-light p-4">
-                <div className="animate-pulse">Initializing...</div>
-              </div>
-            </CardContent>
-          </Card>
-        ) : (
-          <VoiceChat agentId={agentId} />
-        )}
+    <div className="main-container">
+<div className="call-container">
+      <div className="phone-call-user-container">
+        <div className="phone-call-user-photo">
+          <Image className="" src={ImageMax} alt="My Icon" />
+        </div>
+
+        <div className="phone-user-glow01">#</div>
+        <div className="phone-user-glow02">#</div>
+        <div className="phone-user-glow03">#</div>
       </div>
-    </main>
+ <div className="phone-call-text">
+            <h2>Max Lee</h2>
+            <p className="call-status-connected">
+              Connected
+            </p>
+             <p className="phone-call-time">0:00</p>
+            <div className="user-visual-analyser">
+           
+            </div>
+          </div>
+
+      <div className="hang-up-button-container">
+        <button
+          type="button"
+          className="btn-phone-hangup"
+          onClick={() => handleStartCall(slides[activeIndex].id)}
+        >
+          <Image className="button-icon-phone" src={IconPhone} alt="My Icon" />
+        </button>
+      </div>
+
+</div>
+      <div className="background-dots"></div>
+    </div>
+    
   );
 }

@@ -1,0 +1,90 @@
+/**-🟩🟩🟩🟩🟩🟩🟩🟩   GREEN BUTTON    🟩🟩🟩🟩🟩🟩🟩🟩🟩 **/
+
+/* Define custom properties with @property for animating the gradient */
+@property --gradient-start {
+  syntax: "<color>";
+  initial-value: #4e9630;
+  inherits: false;
+}
+
+@property --gradient-end {
+  syntax: "<color>";
+  initial-value: #0b2a3b;
+  inherits: false;
+}
+
+/* Apply the animation to the .btn-phone class */
+.btn-phone {
+  width: 100%;
+  height: 2.53rem;
+  border-radius: 5rem;
+  background: linear-gradient(
+    136deg,
+    var(--gradient-start) 10.03%,
+    var(--gradient-end) 94.47%
+  );
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  box-shadow: -1px 1px 1px -1px rgba(135, 255, 74, 0.61) inset,
+    -1px 2px 2px 0px #3db203 inset, 0px 1.5px 1px -1px rgba(255, 255, 255, 0.5),
+    0px 2px 2px -1px rgba(77, 230, 0, 0.7),
+    0px 1px 10px 0px rgba(88, 229, 17, 0.6);
+  /* Add the animation properties */
+
+  animation: gradientAnimation 3s cubic-bezier(0.645, 0.045, 0.355, 1) infinite;
+}
+
+.btn-phone img {
+  /* Animation to subtle shake with a longer delay */
+  height: 0.9rem;
+  animation: shake 4s infinite alternate; /* Total duration including delay */
+}
+
+/*🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥   RED BUTTON    🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥*/
+
+@property --gradient02-start {
+  syntax: "<color>";
+  initial-value: #ff7053;
+  inherits: false;
+}
+
+@property --gradient02-end {
+  syntax: "<color>";
+  initial-value: #910c00;
+  inherits: false;
+}
+
+.btn-phone-hangup {
+  position: relative;
+  z-index: 1;
+  width: 7.58rem;
+  height: 3.53rem;
+  border-radius: 5rem;
+  background: linear-gradient(
+    136deg,
+    var(--gradient02-start) 10.03%,
+    var(--gradient02-end) 94.47%
+  );
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: none;
+  transform: translateY(500%);
+  opacity: 0;
+  /* Add the animation properties */
+  animation: slideUp 1s ease-in-out 0.6s forwards,
+    gradientAnimation02 5s cubic-bezier(0.645, 0.045, 0.355, 1) infinite;
+}
+
+.btn-phone-hangup img {
+  height: 1.4rem;
+  transform: rotate(135deg) translateY(-2px);
+  pointer-events: none;
+}
