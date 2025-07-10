@@ -1,29 +1,28 @@
-import { useRouter } from "next/router";
+import { createWebAgent } from "@/lib/bland";
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { Card, CardContent } from "../components/ui/card";
 import VoiceChat from "../components/VoiceChat";
 
 export default function HomePage() {
-  const router = useRouter();
+  //const router = useRouter();
 
   const [agentId, setAgentId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  /*
   useEffect(() => {
     const initAgent = async () => {
       setIsLoading(true);
       try {
         const response = await createWebAgent();
         if (!response.agent?.agent_id) {
-          throw new Error('Failed to create web agent');
+          throw new Error("Failed to create web agent");
         }
         setAgentId(response.agent.agent_id);
       } catch (err) {
-        console.error('Agent creation error:', err);
-        setError(err instanceof Error ? err.message : 'Failed to create agent');
+        console.error("Agent creation error:", err);
+        setError(err instanceof Error ? err.message : "Failed to create agent");
       } finally {
         setIsLoading(false);
       }
@@ -31,7 +30,7 @@ export default function HomePage() {
 
     initAgent();
   }, []);
-*/
+
   /*
   useEffect(() => {
     const initAgent = async () => {
@@ -49,6 +48,7 @@ export default function HomePage() {
     initAgent();
   }, []);
 */
+  /*
   useEffect(() => {
     if (!router.isReady) return;
 
@@ -62,7 +62,7 @@ export default function HomePage() {
 
     setIsLoading(false);
   }, [router.isReady, router.query.agent_id]);
-
+*/
   useEffect(() => {
     const onUnload = () => {
       if (window.opener) {

@@ -192,7 +192,7 @@ export default function VoiceChat({ agentId }: VoiceChatProps) {
       setStatus("Disconnecting...");
       await cleanup();
     } else {
-      initVoiceChat(); // Your existing initVoiceChat function
+      initVoiceChat();
     }
   };
 
@@ -211,7 +211,7 @@ export default function VoiceChat({ agentId }: VoiceChatProps) {
       return;
     }
 
-    cleanup(); // Cleanup any existing connections
+    cleanup();
     setStatus("Initializing...");
     setError(null);
     setIsLoading(true);
@@ -240,6 +240,7 @@ export default function VoiceChat({ agentId }: VoiceChatProps) {
 
       setCallId(currentCallId);
       setStatus("Connected! Start speaking...");
+      console.log(currentCallId);
       setIsRecording(true);
       setIsConnected(true);
 
